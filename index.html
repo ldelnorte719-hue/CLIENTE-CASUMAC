@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Perla del Norte | Propuesta Navideña para CASUMAC</title>
+    
+    <!-- Fuentes Google: Playfair Display + Noto Serif JP + Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ============================================================
+           VARIABLES & ESTILOS ESTÉTICA JAPONESA MINIMALISTA
+           ============================================================ */
+        :root {
+            --bg-principal: #F6F4EE;
+            --bg-secundario: #EFECE4;
+            --bg-tarjeta: #FFFFFF;
+            --texto-oscuro: #2C2A29;
+            --texto-suave: #6E6A66;
+            --acento-verde: #2D4F43;
+            --acento-dorado: #C59B27;
+            --borde-sutil: #E2DDD5;
+            --sombra-elegante: 0 15px 35px rgba(44, 42, 41, 0.05);
+            --fuente-titulo: 'Playfair Display', 'Shippori Mincho', serif;
+            --fuente-cuerpo: 'Montserrat', sans-serif;
+            --transicion: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--fuente-cuerpo);
+            background-color: var(--bg-principal);
+            color: var(--texto-oscuro);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: min(1140px, 90%);
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           BARRA LATERAL FIJA (SIDEBAR DERECHO ESTILO INSPIRACIÓN)
+           ============================================================ */
+        .side-bar-fixed {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            box-shadow: -4px 0 20px rgba(0,0,0,0.06);
+        }
+
+        .side-bar-btn {
+            background-color: var(--acento-verde);
+            color: #FFF;
+            padding: 24px 12px;
+            text-decoration: none;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 13px;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transicion);
+        }
+
+        .side-bar-btn:hover {
+            background-color: var(--acento-dorado);
+            color: var(--texto-oscuro);
+        }
+
+        .side-bar-btn.alt {
+            background-color: var(--acento-dorado);
+            color: var(--texto-oscuro);
+        }
+
+        .side-bar-btn.alt:hover {
+            background-color: var(--acento-verde);
+            color: #FFF;
+        }
+
+        /* ============================================================
+           HEADER DE NAVEGACIÓN
+           ============================================================ */
+        header {
+            background-color: rgba(246, 244, 238, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--borde-sutil);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-decoration: none;
+            color: var(--texto-oscuro);
+        }
+
+        .brand-logo img {
+            height: 48px;
+            width: auto;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-family: var(--fuente-titulo);
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .brand-sub {
+            font-size: 10px;
+            display: block;
+            color: var(--texto-suave);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--texto-oscuro);
+            font-size: 13px;
+            font-weight: 500;
+            transition: var(--transicion);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background-color: var(--acento-verde);
+            transition: var(--transicion);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* ============================================================
+           HERO SECTION ASIMÉTRICO (INSPIRADO EN LA FOTO)
+           ============================================================ */
+        .hero-section {
+            padding: 70px 0 90px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .vertical-title-box {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-family: var(--fuente-titulo);
+            font-size: 44px;
+            line-height: 1.2;
+            color: var(--texto-oscuro);
+            letter-spacing: 0.1em;
+            white-space: nowrap;
+        }
+
+        .vertical-text span {
+            color: var(--acento-verde);
+        }
+
+        .hero-intro-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .badge-kicker {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--acento-verde);
+            border-left: 2px solid var(--acento-verde);
+            padding-left: 10px;
+            font-weight: 600;
+        }
+
+        .hero-intro-text p {
+            color: var(--texto-suave);
+            font-size: 15px;
+        }
+
+        .meta-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .pill {
+            background-color: var(--bg-secundario);
+            border: 1px solid var(--borde-sutil);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            color: var(--texto-oscuro);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pill i {
+            width: 14px;
+            height: 14px;
+            color: var(--acento-verde);
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .main-hero-img {
+            width: 90%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 160px 20px 20px 20px;
+            box-shadow: var(--sombra-elegante);
+        }
+
+        .hero-float-card {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 24px 30px;
+            border-radius: 12px;
+            border: 1px solid var(--borde-sutil);
+            box-shadow: var(--sombra-elegante);
+            max-width: 260px;
+        }
+
+        .hero-float-card h4 {
+            font-family: var(--fuente-titulo);
+            font-size: 18px;
+            color: var(--acento-verde);
+            margin-bottom: 4px;
+        }
+
+        .hero-float-card p {
+            font-size: 12px;
+            color: var(--texto-suave);
+        }
+
+        /* ============================================================
+           SECCIONES GENERALES
+           ============================================================ */
+        .section-block {
+            padding: 90px 0;
+            border-top: 1px solid var(--borde-sutil);
+        }
+
+        .section-header-jp {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header-jp .sub {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--acento-verde);
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .section-header-jp h2 {
+            font-family: var(--fuente-titulo);
+            font-size: 34px;
+            color: var(--texto-oscuro);
+            font-weight: 700;
+        }
+
+        /* ============================================================
+           ITINERARIO (GRID ASIMÉTRICO / GALERÍA DE CONCEPTOS)
+           ============================================================ */
+        .itinerary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .day-card {
+            background-color: var(--bg-tarjeta);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--borde-sutil);
+            transition: var(--transicion);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--sombra-elegante);
+            border-color: var(--acento-verde);
+        }
+
+        .day-img-box {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .day-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transicion);
+        }
+
+        .day-card:hover .day-img-box img {
+            transform: scale(1.05);
+        }
+
+        .day-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--acento-verde);
+            color: #FFF;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        .day-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .day-content h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 20px;
+            color: var(--texto-oscuro);
+            margin-bottom: 12px;
+        }
+
+        .day-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--texto-suave);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .day-list li {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .day-list li::before {
+            content: "•";
+            color: var(--acento-verde);
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        /* ============================================================
+           SECCIÓN PRESUPUESTO & TABLA DE PRECIOS
+           ============================================================ */
+        .budget-container {
+            background-color: var(--bg-secundario);
+            border-radius: 20px;
+            padding: 50px;
+            border: 1px solid var(--borde-sutil);
+        }
+
+        .budget-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .budget-table-box h3 {
+            font-family: var(--fuente-titulo);
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--texto-oscuro);
+        }
+
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            background-color: var(--bg-tarjeta);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .pricing-table th, .pricing-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--borde-sutil);
+        }
+
+        .pricing-table th {
+            background-color: #F0EDE6;
+            color: var(--texto-oscuro);
+            font-weight: 600;
+        }
+
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .price-num {
+            font-weight: 600;
+            color: var(--acento-verde);
+            text-align: right;
+        }
+
+        .summary-card-jp {
+            background-color: var(--acento-verde);
+            color: #FFF;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--sombra-elegante);
+        }
+
+        .summary-card-jp h4 {
+            font-family: var(--fuente-titulo);
+            font-size: 22px;
+            color: var(--acento-dorado);
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 10px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #E0E7E4;
+        }
+
+        .summary-row.discount {
+            color: var(--acento-dorado);
+            font-weight: 600;
+        }
+
+        .grand-total {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px stroke rgba(255,255,255,0.2);
+            text-align: right;
+        }
+
+        .grand-total .label-total {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #A3B8B0;
+        }
+
+        .grand-total .amount {
+            font-family: var(--fuente-titulo);
+            font-size: 40px;
+            color: var(--acento-dorado);
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .grand-total .per-person {
+            font-size: 13px;
+            color: #E0E7E4;
+            margin-top: 4px;
+        }
+
+        /* ============================================================
+           BOTÓN ACCIÓN / FOOTER
+           ============================================================ */
+        .cta-box {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .btn-jp {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: var(--acento-verde);
+            color: #FFF;
+            padding: 16px 36px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            transition: var(--transicion);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-jp:hover {
+            background-color: var(--acento-dorado);
+            color: var(--texto-oscuro);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #232221;
+            color: #9E9A95;
+            padding: 60px 0 30px;
+            font-size: 12px;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: var(--fuente-titulo);
+            font-size: 18px;
+            color: #FFF;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero-grid, .budget-grid {
+                grid-template-columns: 1fr;
+            }
+            .side-bar-fixed {
+                display: none;
+            }
+            .vertical-text {
+                writing-mode: horizontal-tb;
+                font-size: 32px;
+            }
+            .vertical-title-box {
+                flex-direction: column;
+            }
+            .main-hero-img {
+                width: 100%;
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA LATERAL FIJA DERECHA (TIPO EDITORIAL JAPONÉS) -->
+    <aside class="side-bar-fixed">
+        <a href="#presupuesto" class="side-bar-btn">VER PRESUPUESTO</a>
+        <a href="#contacto" class="side-bar-btn alt">RESERVAR RUTA</a>
+    </aside>
+
+    <!-- HEADER DE NAVEGACIÓN -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="brand-logo">
+                <img src="logo.png" alt="La Perla del Norte" onerror="this.style.display='none'">
+                <div>
+                    <span class="brand-name">La Perla del Norte</span>
+                    <span class="brand-sub">Viajes & Experiencias</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#concepto">Concepto</a></li>
+                    <li><a href="#itinerario">Itinerario</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#presupuesto">Presupuesto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION ESTILO EDITORIAL -->
+    <section class="hero-section" id="concepto">
+        <div class="container hero-grid">
+            
+            <div class="vertical-title-box">
+                <!-- TÍTULO VERTICAL EN PANTALLAS GRANDES -->
+                <h1 class="vertical-text">
+                    Navidad <span>en el Cantábrico</span>
+                </h1>
+
+                <div class="hero-intro-text">
+                    <span class="badge-kicker">Propuesta Exclusiva para CASUMAC</span>
+                    <p>Diseño de viaje privado para un grupo especial de 6 parejas (12 personas). Salida Viernes por la noche y retorno Lunes por la mañana.</p>
+                    
+                    <div class="meta-pills">
+                        <span class="pill"><i data-lucide="users"></i> 12 Personas (6 Parejas)</span>
+                        <span class="pill"><i data-lucide="calendar"></i> Fin de semana Navideño</span>
+                        <span class="pill"><i data-lucide="map-pin"></i> Bilbao & San Sebastián</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1513297887119-d46091b24bfa?auto=format&fit=crop&w=1000&q=80" alt="Luces de Navidad" class="main-hero-img">
+                
+                <div class="hero-float-card">
+                    <h4>Ruta Bilbao - Donostia</h4>
+                    <p>Luces navideñas, alta gastronomía, cultura y paisaje cantábrico en transporte VIP.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ITINERARIO TIPO GALERÍA JAPONESA -->
+    <section class="section-block" id="itinerario">
+        <div class="container">
+            <div class="section-header-jp">
+                <span class="sub">Metodología de Viaje</span>
+                <h2>Itinerario Detallado del Grupo</h2>
+            </div>
+
+            <div class="itinerary-grid">
+                
+                <!-- DÍA 1 -->
+                <article class="day-card">
+                    <div class="day-img-box">
+                        <span class="day-tag">VIERNES NOCHE</span>
+                        <img src="https://images.unsplash.com/photo-1543872084-c7bd3822856f?auto=format&fit=crop&w=600&q=80" alt="Noche Navideña">
+                    </div>
+                    <div class="day-content">
+                        <h3>Salida VIP & Bienvenida</h3>
+                        <ul class="day-list">
+                            <li><strong>20:30 h:</strong> Salida en minibús privado VIP con chófer desde la sede de CASUMAC.</li>
+                            <li>Llegada y check-in en Hotel 4* Superior en la zona de Bilbao.</li>
+                            <li><strong>Detalle de bienvenida:</strong> Cóctel privado con cava y dulces navideños de autor.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- DÍA 2 -->
+                <article class="day-card">
+                    <div class="day-img-box">
+                        <span class="day-tag">SÁBADO</span>
+                        <img src="https://images.unsplash.com/photo-1508873696983-2df5057c0809?auto=format&fit=crop&w=600&q=80" alt="Bilbao Gourmet">
+                    </div>
+                    <div class="day-content">
+                        <h3>Bilbao, Pintxos & Gala</h3>
+                        <ul class="day-list">
+                            <li>Visita guiada por el Casco Viejo y Mercado de la Ribera iluminado.</li>
+                            <li><strong>Ruta Pintxos Premium:</strong> Maridaje con Txakoli D.O.</li>
+                            <li>Entradas al Museo Guggenheim Bilbao.</li>
+                            <li><strong>Cena de Gala de Navidad:</strong> Menú gastronómico exclusivo de grupo.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- DÍA 3 -->
+                <article class="day-card">
+                    <div class="day-img-box">
+                        <span class="day-tag">DOMINGO</span>
+                        <img src="https://images.unsplash.com/photo-1568084680786-a84f91d1153c?auto=format&fit=crop&w=600&q=80" alt="San Sebastián">
+                    </div>
+                    <div class="day-content">
+                        <h3>San Sebastián & Costa</h3>
+                        <ul class="day-list">
+                            <li>Paseo por la Bahía de La Concha e iluminación de Alderdi Eder.</li>
+                            <li><strong>Almuerzo Tradicional:</strong> Menú navideño en sidrería/asador.</li>
+                            <li>Recorrido por Getaria y Zarautz con cata privada de vinos en bodega.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- DÍA 4 -->
+                <article class="day-card">
+                    <div class="day-img-box">
+                        <span class="day-tag">LUNES MAÑANA</span>
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=600&q=80" alt="Regreso">
+                    </div>
+                    <div class="day-content">
+                        <h3>Retorno a Origen</h3>
+                        <ul class="day-list">
+                            <li><strong>07:30 h - 08:30 h:</strong> Desayuno temprano / picnic de cortesía en ruta.</li>
+                            <li><strong>08:30 h - 10:00 h:</strong> Traslado de regreso a la sede de CASUMAC para el inicio laboral.</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PRESUPUESTO TRANSPARENTE CON ESTÉTICA MINIMALISTA -->
+    <section class="section-block" id="presupuesto">
+        <div class="container">
+            <div class="section-header-jp">
+                <span class="sub">Claridad Financiera</span>
+                <h2>Presupuesto para CASUMAC</h2>
+            </div>
+
+            <div class="budget-container">
+                <div class="budget-grid">
+                    
+                    <div class="budget-table-box">
+                        <h3>Desglose de Tarifas Oficiales</h3>
+                        <table class="pricing-table">
+                            <thead>
+                                <tr>
+                                    <th>Concepto / Servicio</th>
+                                    <th style="text-align: right;">Por Persona</th>
+                                    <th style="text-align: right;">Por Pareja</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Transporte VIP con Chófer (4 días)</td>
+                                    <td class="price-num">95 €</td>
+                                    <td class="price-num">190 €</td>
+                                </tr>
+                                <tr>
+                                    <td>Hotel 4* (2 noches + Desayuno)</td>
+                                    <td class="price-num">160 €</td>
+                                    <td class="price-num">320 €</td>
+                                </tr>
+                                <tr>
+                                    <td>Experiencias Gastronómicas & Catas</td>
+                                    <td class="price-num">145 €</td>
+                                    <td class="price-num">290 €</td>
+                                </tr>
+                                <tr>
+                                    <td>Guggenheim + Guía + Seguro Viaje</td>
+                                    <td class="price-num">50 €</td>
+                                    <td class="price-num">100 €</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="summary-card-jp">
+                        <h4>Resumen Neto de Grupo</h4>
+                        
+                        <div class="summary-row">
+                            <span>Tarifa Oficial Grupo (12 p.)</span>
+                            <span>5.400 €</span>
+                        </div>
+                        <div class="summary-row discount">
+                            <span>Desc. Grupo Corporativo (10%)</span>
+                            <span>-540 €</span>
+                        </div>
+                        <div class="summary-row discount">
+                            <span>Promo Empresas del Norte</span>
+                            <span>-120 €</span>
+                        </div>
+
+                        <div class="grand-total">
+                            <div class="label-total">Importe Total Neto (IVA Inc.)</div>
+                            <div class="amount">4.740 €</div>
+                            <div class="per-person">395 € / persona (790 € / pareja)</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cta-box" id="contacto">
+                    <button class="btn-jp" onclick="confirmarReserva()">
+                        CONFIRMAR RESERVA PARA CASUMAC <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-flex">
+                <div class="footer-logo">Agencia de Viajes La Perla del Norte</div>
+                <div>Paseo de Pereda, 15, Santander | Tel: +34 942 55 66 77</div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 20px;">
+                <p>&copy; 2026 La Perla del Norte S.L. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function confirmarReserva() {
+            alert("Gracias por confirmar la propuesta. El equipo de La Perla del Norte se pondrá en contacto con CASUMAC para la reserva definitiva.");
+        }
+    </script>
+</body>
+</html>
